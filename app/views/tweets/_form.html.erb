@@ -12,7 +12,6 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :body %>
     <%= form.text_area :body, class: 'form-control', placeholder: "Tweet your thoughts...", data: { target: "tweet-form.body", action: "keyup->tweet-form#update" } %>
   </div>
 
