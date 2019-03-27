@@ -1,8 +1,11 @@
-<div id="<%= dom_id(tweet) %>" class="card card-body mb-3">
+<div id="<%= dom_id(tweet) %>" class="card card-body mb-3" data-controller="inline-edit">
   <div>
     <%= image_tag gravatar_image_url(tweet.user.email, size: 40), height: 20, width: 20, class: "rounded-circle" %>
     <%= tweet.user.name %>
   </div>
-  <div><%= tweet.body %></div>
   <div class="text-muted"><small><%= tweet.created_at %></small></div>
+
+  <div data-target="inline-edit.body" data-action="click->inline-edit#toggle"><%= tweet.body %></div>
+
+  <%= render "form", tweet: tweet, class: "d-none" %>
 </div>
